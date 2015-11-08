@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFilmovaStoreContainer" CdmEntityContainer="ModelFilmovaContainer">
+    <EntitySetMapping Name="FilmsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFilmova.Films)">
+        <MappingFragment StoreEntitySet="FilmsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+          <ScalarProperty Name="Radnja" ColumnName="Radnja" />
+          <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZanrsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFilmova.Zanrs)">
+        <MappingFragment StoreEntitySet="ZanrsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Zanr" ColumnName="Zanr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlumacsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFilmova.Glumacs)">
+        <MappingFragment StoreEntitySet="GlumacsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlumacFilmSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFilmova.GlumacFilm)">
+        <MappingFragment StoreEntitySet="GlumacFilmSet">
+          <ScalarProperty Name="Film_Id" ColumnName="Film_Id" />
+          <ScalarProperty Name="Glumac_Id" ColumnName="Glumac_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZanrFilmSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFilmova.ZanrFilm)">
+        <MappingFragment StoreEntitySet="ZanrFilmSet">
+          <ScalarProperty Name="Film_Id" ColumnName="Film_Id" />
+          <ScalarProperty Name="Zanr_Id" ColumnName="Zanr_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

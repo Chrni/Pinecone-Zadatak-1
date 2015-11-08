@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Zadatak</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Film", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Zanr", "Index", "Zanrs", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Glumac", "Index", "Glumacs", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="zanr">
+        <ul class="zanr">
+            <li class="zanr">@Html.ActionLink("All (" + (string)(ViewBag.All) + ") ", "Index", "Home", new { id = 0 }, new {})</li>
+            @foreach (var item in ViewBag.Zanrs)
+            {
+                <li class="zanr">@Html.ActionLink((string)(@item.Zanr) + "(" + (string)(item.NumOfFilms) + ") ", "Index", "Home", new { id = item.Id }, new { })</li>
+            }
+        </ul>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</body>
+</html>

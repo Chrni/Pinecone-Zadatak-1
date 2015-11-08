@@ -1,0 +1,67 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+ul li {
+    display: inline;
+}
+
+div.zanr {
+    margin: auto;
+    width: 60%;
+    padding: 2px;
+
+    height: 50px;
+}
+ 
+h2.zanr {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul.zanr {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+li.zanr {
+  font: 200 16px/1.5 Helvetica, Verdana, sans-serif;
+  border-right: 1px solid #000;
+  margin-left: 6px;
+}
+ 
+li.zanr:last-child {
+  border: none;
+}
+
+li a {
+  text-decoration: none;
+  color: #000;
+  display: inline;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 20px;
+  background: #f6f6f6;
+}

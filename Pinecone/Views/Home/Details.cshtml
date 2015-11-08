@@ -1,0 +1,75 @@
+﻿@using Pinecone.Models;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Naslov
+        </dt>
+
+        <dd>
+            @((ViewBag.Films as Films).Naslov)
+        </dd>
+
+        <dt>
+            Radnja
+        </dt>
+
+        <dd>
+            @((ViewBag.Films as Films).Radnja)
+        </dd>
+
+        <dt>
+            Trajanje
+        </dt>
+
+        <dd>
+            @((ViewBag.Films as Films).Trajanje)
+        </dd>
+
+        <dt>
+            Ocjena
+        </dt>
+
+        <dd>
+            @((ViewBag.Films as Films).Ocjena)
+        </dd>
+        <dt>
+            Zanr
+        </dt>
+        <dd>
+            <ul>
+                @foreach (ZanrDTO c in ViewBag.Z)
+                {
+                    <li>
+                        @c.Zanr | 
+                    </li>
+                }
+            </ul>
+        </dd>
+        <dt>
+            Glumci
+        </dt>
+        <dd>
+            <ul>
+                @foreach (GlumacDTO c in ViewBag.G)
+                {
+                    <li>
+                        @c.Ime |
+                    </li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = (ViewBag.Films as Films).Id }) |
+    @Html.ActionLink("Natrag", "Index")
+</p>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFilmova.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelFilmovaStoreContainer">
+    <EntitySet Name="FilmsSet" EntityType="ModelFilmova.Store.FilmsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZanrsSet" EntityType="ModelFilmova.Store.ZanrsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GlumacsSet" EntityType="ModelFilmova.Store.GlumacsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GlumacFilmSet" EntityType="ModelFilmova.Store.GlumacFilmSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZanrFilmSet" EntityType="ModelFilmova.Store.ZanrFilmSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FilmsZanrFilm" Association="ModelFilmova.Store.FilmsZanrFilm">
+      <End Role="Films" EntitySet="FilmsSet" />
+      <End Role="ZanrFilm" EntitySet="ZanrFilmSet" />
+    </AssociationSet>
+    <AssociationSet Name="ZanrsZanrFilm" Association="ModelFilmova.Store.ZanrsZanrFilm">
+      <End Role="Zanrs" EntitySet="ZanrsSet" />
+      <End Role="ZanrFilm" EntitySet="ZanrFilmSet" />
+    </AssociationSet>
+    <AssociationSet Name="FilmsGlumacFilm" Association="ModelFilmova.Store.FilmsGlumacFilm">
+      <End Role="Films" EntitySet="FilmsSet" />
+      <End Role="GlumacFilm" EntitySet="GlumacFilmSet" />
+    </AssociationSet>
+    <AssociationSet Name="GlumacsGlumacFilm" Association="ModelFilmova.Store.GlumacsGlumacFilm">
+      <End Role="Glumacs" EntitySet="GlumacsSet" />
+      <End Role="GlumacFilm" EntitySet="GlumacFilmSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FilmsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naslov" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Radnja" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ocjena" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Trajanje" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZanrsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Zanr" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GlumacsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GlumacFilmSet">
+    <Key>
+      <PropertyRef Name="Film_Id" />
+      <PropertyRef Name="Glumac_Id" />
+    </Key>
+    <Property Name="Film_Id" Type="int" Nullable="false" />
+    <Property Name="Glumac_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZanrFilmSet">
+    <Key>
+      <PropertyRef Name="Film_Id" />
+      <PropertyRef Name="Zanr_Id" />
+    </Key>
+    <Property Name="Film_Id" Type="int" Nullable="false" />
+    <Property Name="Zanr_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FilmsZanrFilm">
+    <End Role="Films" Type="ModelFilmova.Store.FilmsSet" Multiplicity="1" />
+    <End Role="ZanrFilm" Type="ModelFilmova.Store.ZanrFilmSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Films">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZanrFilm">
+        <PropertyRef Name="Film_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZanrsZanrFilm">
+    <End Role="Zanrs" Type="ModelFilmova.Store.ZanrsSet" Multiplicity="1" />
+    <End Role="ZanrFilm" Type="ModelFilmova.Store.ZanrFilmSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zanrs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZanrFilm">
+        <PropertyRef Name="Zanr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FilmsGlumacFilm">
+    <End Role="Films" Type="ModelFilmova.Store.FilmsSet" Multiplicity="1" />
+    <End Role="GlumacFilm" Type="ModelFilmova.Store.GlumacFilmSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Films">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GlumacFilm">
+        <PropertyRef Name="Film_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GlumacsGlumacFilm">
+    <End Role="Glumacs" Type="ModelFilmova.Store.GlumacsSet" Multiplicity="1" />
+    <End Role="GlumacFilm" Type="ModelFilmova.Store.GlumacFilmSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Glumacs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GlumacFilm">
+        <PropertyRef Name="Glumac_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

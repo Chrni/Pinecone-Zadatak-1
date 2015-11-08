@@ -1,0 +1,61 @@
+﻿@model Pinecone.Models.GlumacFilmEdit
+
+@{
+    ViewBag.Title = "EditGlumac";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Glumac)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Glumac)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "RemoveEditGlumac", new { id_film = Model.Id_film, id_glumac = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" hidden="hidden">
+            @Html.LabelFor(model => model.Id_film, "Film_Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Film_Id", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Glumac, "Glumac", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                  @Html.DropDownList("Glumac_Id", null, htmlAttributes: new { @class = "form-control" })
+                  @Html.ValidationMessageFor(model => model.Glumac, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
