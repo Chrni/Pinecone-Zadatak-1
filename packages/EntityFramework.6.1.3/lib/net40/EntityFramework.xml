@@ -7991,7 +7991,7 @@
             Creates a <see cref="T:System.Data.Entity.Core.Common.CommandTrees.DbFunctionExpression" /> that invokes the canonical 'Contains' function with the specified arguments, which must each have a string result type. The result type of the expression is Boolean.
             </summary>
             <returns>A new DbFunctionExpression that returns a Boolean value indicating whether or not searchedForString occurs within searchedString.</returns>
-            <param name="searchedString">An expression that specifies the string to search for any occurence of searchedForString.</param>
+            <param name="searchedString">An expression that specifies the string to search for any occurrence of searchedForString.</param>
             <param name="searchedForString">An expression that specifies the string to search for in searchedString.</param>
         </member>
         <member name="M:System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.EdmFunctions.EndsWith(System.Data.Entity.Core.Common.CommandTrees.DbExpression,System.Data.Entity.Core.Common.CommandTrees.DbExpression)">
@@ -8029,7 +8029,7 @@
             <summary>
             Creates a <see cref="T:System.Data.Entity.Core.Common.CommandTrees.DbFunctionExpression" /> that invokes the canonical 'Replace' function with the specified arguments, which must each have a string result type. The result type of the expression is also string.
             </summary>
-            <returns>A new DbFunctionExpression than returns a new string based on stringArgument where every occurence of toReplace is replaced by replacement.</returns>
+            <returns>A new DbFunctionExpression than returns a new string based on stringArgument where every occurrence of toReplace is replaced by replacement.</returns>
             <param name="stringArgument">An expression that specifies the string in which to perform the replacement operation.</param>
             <param name="toReplace">An expression that specifies the string that is replaced.</param>
             <param name="replacement">An expression that specifies the replacement string.</param>
@@ -10817,14 +10817,14 @@
             <summary>
             This method is called before <see cref="M:System.Data.Common.DbTransaction.Commit"/> is invoked.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
             <summary>
             This method is called after <see cref="M:System.Data.Common.DbTransaction.Commit"/> is invoked.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Disposing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -11198,7 +11198,7 @@
             <summary>
             Does not write to log unless overridden.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -11207,7 +11207,7 @@
             The default implementation of this method filters by <see cref="T:System.Data.Entity.DbContext"/> set into
             <see cref="P:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Context"/>, if any, and then logs the event.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Disposing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -12967,7 +12967,7 @@
             <summary>
             Can be implemented in a derived class.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
@@ -12975,7 +12975,7 @@
             <summary>
             Can be implemented in a derived class.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
@@ -13056,7 +13056,7 @@
             using <see cref="T:System.Data.Entity.DbConfiguration"/>.
             </summary>
             <remarks>
-            By default EF will poll the resolved <see cref="T:System.Data.Entity.Infrastructure.TransactionContext"/> to check wether the database schema is compatible and
+            By default EF will poll the resolved <see cref="T:System.Data.Entity.Infrastructure.TransactionContext"/> to check whether the database schema is compatible and
             will try to modify it accordingly if it's not. To disable this check call
             <code>Database.SetInitializer&lt;TTransactionContext&gt;(null)</code> where TTransactionContext is the type of the resolved context.
             </remarks>
@@ -13427,7 +13427,7 @@
             If there was an exception thrown checks the database for this transaction and rethrows it if not found.
             Otherwise marks the commit as succeeded and queues the transaction information to be deleted.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
